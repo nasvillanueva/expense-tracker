@@ -5,7 +5,7 @@ export default class Title extends React.Component {
   render() {
     return (
       <div>
-        <h1>Expense Logs</h1>
+        <p>Title of page</p>
       </div>
     );
   }

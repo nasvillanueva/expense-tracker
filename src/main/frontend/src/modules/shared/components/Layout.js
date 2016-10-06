@@ -1,14 +1,19 @@
 import React from "react";
-
 import Footer from "./Footer";
-import Header from "./Header";
+import AppHeader from "./AppHeader";
 
 export default class Layout extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <Header />
+      <div>
+        <AppHeader />
+        <div className="container">
+          <div className="main">
+            {this.props.children}
+          </div>
+
+        </div>
         <Footer />
       </div>
     );
