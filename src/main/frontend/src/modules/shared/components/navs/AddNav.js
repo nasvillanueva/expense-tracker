@@ -6,9 +6,9 @@ export default class AddNav extends React.Component {
     return (
       <nav>
         <ul>
-          <li><IndexLink to="/entry/addIncome">Add Income</IndexLink></li>
-          <li><Link to="/entry/addExpense">Add Expense</Link></li>
-          <li><Link to="/entry/addSavings">Add Savings</Link></li>
+          <li><IndexLink to="/income/add">Add Income</IndexLink></li>
+          <li><Link to="/expense/add">Add Expense</Link></li>
+          <li><Link to="/savings/add">Add Savings</Link></li>
         </ul>
       </nav>
     );

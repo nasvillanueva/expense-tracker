@@ -2,13 +2,15 @@ import React from "react";
 
 export default class Income extends React.Component {
 
-  handleChange(){
+  handleChange() {
 
   }
-  handleSubmit(){
+
+  handleSubmit() {
 
   }
-  render () {
+
+  render() {
     return (
       <div>
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
