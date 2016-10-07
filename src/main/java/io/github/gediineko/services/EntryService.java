@@ -1,6 +1,7 @@
 package io.github.gediineko.services;
 
 import io.github.gediineko.model.dto.list.EntryListDto;
+import jdk.nashorn.internal.ir.EmptyNode;
 
 import java.util.List;
 
@@ -10,4 +11,21 @@ import java.util.List;
 public interface EntryService {
 
     List<EntryListDto> getAllEntry();
+
+    List<EntryListDto> getIncomeList();
+
+    List<EntryListDto> getSavingsList();
+
+    List<EntryListDto> getExpenseList();
+
+    Double getTotalIncome();
+
+    Double getTotalSavings();
+
+    Double getTotalExpense();
+
+    Double getBalance();
+
+    Boolean isNegativeBal();
+
 }

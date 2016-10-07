@@ -25,4 +25,5 @@ public class EntryResource {
         return ResponseEntity.ok(entryService.getAllEntry());
     }
 
+
 }
