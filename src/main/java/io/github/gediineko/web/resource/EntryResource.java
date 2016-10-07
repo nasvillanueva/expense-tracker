@@ -1,28 +1,28 @@
 package io.github.gediineko.web.resource;
 
-import io.github.gediineko.model.dto.list.IncomeListDto;
-import io.github.gediineko.services.IncomeService;
+import io.github.gediineko.model.dto.list.EntryListDto;
+import io.github.gediineko.services.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
- * Created by ggolong on 10/4/16.
+ * Created by ggolong on 10/7/16.
  */
 @RestController
-@RequestMapping("/income")
-public class IncomeResource {
+@RequestMapping("/entry")
+public class EntryResource {
 
     @Autowired
-    private IncomeService incomeService;
+    private EntryService entryService;
 
     @GetMapping
-    public ResponseEntity<List<IncomeListDto>> getAll(){
-        return ResponseEntity.ok(incomeService.getAllIncome());
+    public ResponseEntity<List<EntryListDto>> getAll(){
+        return ResponseEntity.ok(entryService.getAllEntry());
     }
+
 }

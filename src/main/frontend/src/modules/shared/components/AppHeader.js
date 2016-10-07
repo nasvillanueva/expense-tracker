@@ -1,7 +1,7 @@
 import React from "react";
-import {Link} from "react-router";
-import {NavItem, MenuItem, NavDropdown, Nav} from "react-bootstrap";
-import Navbar, {Header, Brand, Toggle, Collapse} from "react-bootstrap/lib/Navbar";
+import { Link } from "react-router";
+import { NavItem, Nav } from "react-bootstrap";
+import Navbar, { Header, Brand, Toggle, Collapse } from "react-bootstrap/lib/Navbar";
 
 export default class AppHeader extends React.Component {
 

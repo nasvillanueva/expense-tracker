@@ -1,15 +1,15 @@
 package io.github.gediineko.model.dto.list;
 
 import io.github.gediineko.model.base.dto.BaseWebDto;
-import io.github.gediineko.model.entity.Income;
+import io.github.gediineko.model.entity.Entry;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * Created by ggolong on 10/4/16.
+ * Created by ggolong on 10/7/16.
  */
-public class IncomeListDto extends BaseWebDto<Income> {
+public class EntryListDto extends BaseWebDto<Entry> {
 
-    public IncomeListDto(Income target) {
+    public EntryListDto(Entry target) {
         super(target);
     }
 

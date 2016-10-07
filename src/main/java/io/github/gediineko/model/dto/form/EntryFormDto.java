@@ -1,17 +1,17 @@
 package io.github.gediineko.model.dto.form;
 
 import io.github.gediineko.model.base.dto.BaseWebDto;
-import io.github.gediineko.model.entity.Income;
+import io.github.gediineko.model.entity.Entry;
 import io.github.gediineko.model.ref.Category;
 import io.github.gediineko.model.ref.Recurrence;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
- * Created by ggolong on 10/5/16.
+ * Created by ggolong on 10/7/16.
  */
-public class IncomeFormDto extends BaseWebDto<Income> {
+public class EntryFormDto extends BaseWebDto<Entry> {
 
-    public IncomeFormDto(Income target) {
+    public EntryFormDto(Entry target) {
         super(target);
     }
 
