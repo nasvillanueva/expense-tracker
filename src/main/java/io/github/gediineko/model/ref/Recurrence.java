@@ -9,8 +9,8 @@ public enum Recurrence {
     FORTNIGHTLY("Fortnightly"),
     MONTHLY("Monthly"),
     QUARTERLY("Quarterly"),
-    BIANUALLY("Bi-Anually"),
-    ANUALLY("Anually"),
+    BIANNUALLY("Bi-Annually"),
+    ANNUALLY("Annually"),
     NONE("None");
 
     private String desc;
