@@ -27,14 +27,14 @@ public class EntryResource {
 
     @GetMapping
     public ResponseEntity<List<EntryListDto>> getAll() {
-//        return ResponseEntity.ok(entryService.getAllEntries());
-        Entry entry = new Entry();
-        entry.setValue(5000D);
-        entry.setDescription("Breakfast");
-        entry.setRecurrence(Recurrence.DAILY);
-        entry.setCategory(Category.FOOD);
-
-        return ResponseEntity.ok(Lists.newArrayList(new EntryListDto(entry)));
+        return ResponseEntity.ok(entryService.getAllEntries());
+//        Entry entry = new Entry();
+//        entry.setValue(5000D);
+//        entry.setDescription("Breakfast");
+//        entry.setRecurrence(Recurrence.DAILY);
+//        entry.setCategory(Category.FOOD);
+//
+//        return ResponseEntity.ok(Lists.newArrayList(new EntryListDto(entry)));
     }
 
     @GetMapping("/{category}")
