@@ -1,7 +1,6 @@
 package io.github.gediineko.services;
 
 import io.github.gediineko.model.dto.list.EntryListDto;
-import jdk.nashorn.internal.ir.EmptyNode;
 
 import java.util.List;
 
@@ -10,22 +9,21 @@ import java.util.List;
  */
 public interface EntryService {
 
-    List<EntryListDto> getAllEntry();
+    List<EntryListDto> getAllEntries();
 
-    List<EntryListDto> getIncomeList();
+    List<EntryListDto> getEntryList(String category);
 
-    List<EntryListDto> getSavingsList();
+    EntryListDto createEntry(EntryListDto newEntry); // EntityAlreadyExistException
 
-    List<EntryListDto> getExpenseList();
+    EntryListDto updateEntry(EntryListDto updatedEntry); // EntityDoesNotExistException
 
-    Double getTotalIncome();
+    EntryListDto getEntity(Long id); // EntityDoesNotExistException
 
-    Double getTotalSavings();
-
-    Double getTotalExpense();
+    Double getTotal(String category);
 
     Double getBalance();
 
     Boolean isNegativeBal();
 
+    void deleteEntry(Long id);
 }

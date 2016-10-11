@@ -1,1 +1,1 @@
-export {default as style} from './less/style.less'
+export { default as style } from './less/style.less'

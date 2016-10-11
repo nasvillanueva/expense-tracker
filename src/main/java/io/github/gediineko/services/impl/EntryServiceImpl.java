@@ -1,5 +1,6 @@
 package io.github.gediineko.services.impl;
 
+import com.google.common.collect.Lists;
 import io.github.gediineko.model.dto.list.EntryListDto;
 import io.github.gediineko.model.ref.Category;
 import io.github.gediineko.repo.jpa.EntryRepository;
@@ -20,7 +21,7 @@ public class EntryServiceImpl implements EntryService {
     private EntryRepository entryRepository;
 
     @Override
-    public List<EntryListDto> getAllEntry() {
+    public List<EntryListDto> getAllEntries() {
         return entryRepository.findAll()
                 .stream()
                 .map(EntryListDto::new)
@@ -28,53 +29,64 @@ public class EntryServiceImpl implements EntryService {
     }
 
     @Override
-    public List<EntryListDto> getIncomeList() {
-        return entryRepository.findAllByCategory(Category.INCOME)
+    public List<EntryListDto> getEntryList(String category) {
+        List<Category> categories = resolveStrCategory(category);
+        return entryRepository.findAllByCategoryIn(categories)
                 .stream()
                 .map(EntryListDto::new)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<EntryListDto> getSavingsList() {
-        return entryRepository.findAllByCategory(Category.SAVINGS)
-                .stream()
-                .map(EntryListDto::new)
-                .collect(Collectors.toList());
+    public EntryListDto createEntry(EntryListDto newEntry) {
+        return null;
     }
 
     @Override
-    public List<EntryListDto> getExpenseList() {
-        return entryRepository.findAll()
-                .stream()
-                .filter(e -> (e.getCategory() != Category.INCOME
-                        && e.getCategory() != Category.SAVINGS))
-                .map(EntryListDto::new)
-                .collect(Collectors.toList());
+    public EntryListDto updateEntry(EntryListDto updatedEntry) {
+        return null;
     }
 
     @Override
-    public Double getTotalIncome() {
-        return entryRepository.getTotalOfCategory(getIncomeList());
+    public EntryListDto getEntity(Long id) {
+        return null;
     }
 
     @Override
-    public Double getTotalSavings() {
-        return entryRepository.getTotalOfCategory(getSavingsList());
-    }
+    public Double getTotal(String category) {
+        List<Category> categories = resolveStrCategory(category);
 
-    @Override
-    public Double getTotalExpense() {
-        return entryRepository.getTotalOfCategory(getExpenseList());
+        return entryRepository.getTotalOfCategory(categories);
     }
 
     @Override
     public Double getBalance() {
-        return getTotalIncome() - (getTotalSavings() + getTotalExpense());
+        return getTotal(Category.NON_EXPENSE) - getTotal(Category.EXPENSE);
     }
 
     @Override
     public Boolean isNegativeBal() {
-        return getBalance() <= 0 ;
+        return getBalance() <= 0;
+    }
+
+    @Override
+    public void deleteEntry(Long id) {
+        entryRepository.delete(id);
+    }
+
+    private List<Category> resolveStrCategory(String category) {
+        List<Category> categories;
+        switch (category) {
+            case Category.EXPENSE:
+                categories = Category.expenseList();
+                break;
+            case Category.NON_EXPENSE:
+                categories = Category.nonExpenseList();
+                break;
+            default:
+                categories = Lists.newArrayList(Category.valueOf(category));
+                break;
+        }
+        return categories;
     }
 }

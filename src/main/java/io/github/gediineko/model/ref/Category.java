@@ -1,5 +1,9 @@
 package io.github.gediineko.model.ref;
 
+import com.google.common.collect.Lists;
+
+import java.util.List;
+
 /**
  * Created by ggolong on 10/4/16.
  */
@@ -9,7 +13,7 @@ public enum Category {
     HEALTH("Health"),
     TRANSPORT("Transport"),
     CLOTHES("Clothes"),
-    LEISURE("Lesiure"),
+    LEISURE("Leisure"),
     EDUCATION("Education"),
     OTHER("Other"),
 
@@ -19,6 +23,9 @@ public enum Category {
 
     private String desc;
 
+    public static final String EXPENSE = "EXPENSE";
+    public static final String NON_EXPENSE = "NON_EXPENSE";
+
     Category(String desc) {
         this.desc = desc;
     }
@@ -26,5 +33,19 @@ public enum Category {
     @Override
     public String toString() {
         return desc;
+    }
+
+    public static List<Category> nonExpenseList(){
+        return Lists.newArrayList(
+                INCOME
+        );
+    }
+
+    public static List<Category> expenseList() {
+        return Lists.newArrayList(
+                SAVINGS, FOOD, BILLS, HEALTH,
+                TRANSPORT, CLOTHES, LEISURE,
+                EDUCATION, OTHER
+        );
     }
 }
