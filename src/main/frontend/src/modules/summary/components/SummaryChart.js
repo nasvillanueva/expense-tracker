@@ -7,21 +7,14 @@ export default class SummaryEntry extends React.Component {
   }
 
   render() {
-    let summary = this.props.summary;
+    let label = this.props.label;
+    let data = this.props.data;
 
-    var data = {
-      labels:  [
-        "Income",
-        "Expense",
-        "Savings"
-      ],
+    let chartData = {
+      labels:  label,
       datasets: [
         {
-          data: [
-            12000,
-            215,
-            2000
-          ],
+          data: data,
           backgroundColor: [
             "#BEE3DB",
             "#5DFDCB",
@@ -37,7 +30,7 @@ export default class SummaryEntry extends React.Component {
     };
 
     return (
-        <Bar data={data}  />
+        <Bar data={chartData}  />
     );
   }
 }

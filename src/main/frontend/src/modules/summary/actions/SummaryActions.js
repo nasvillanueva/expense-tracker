@@ -12,17 +12,17 @@ function fetchDataReq() {
   }
 }
 
-function fetchDataSuccess(summary, category) {
+function fetchDataSuccess(total, category) {
   var state = {
     ui: {
       isFetching: false
-    }
+    },
+    total: {}
   };
-  state[CATEGORY_SUMMARY[category]] = summary;
+  state.total[category.toLowerCase()] = total;
   return {
     type: SUMMARY_ACTIONS.FETCH_SUCCESS,
-    state: summary
-
+    state: state
   }
 }
 

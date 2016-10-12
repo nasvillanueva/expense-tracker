@@ -1,10 +1,6 @@
 package io.github.gediineko.web.resource;
 
-import com.google.common.collect.Lists;
 import io.github.gediineko.model.dto.list.EntryListDto;
-import io.github.gediineko.model.entity.Entry;
-import io.github.gediineko.model.ref.Category;
-import io.github.gediineko.model.ref.Recurrence;
 import io.github.gediineko.services.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,13 +24,6 @@ public class EntryResource {
     @GetMapping
     public ResponseEntity<List<EntryListDto>> getAll() {
         return ResponseEntity.ok(entryService.getAllEntries());
-//        Entry entry = new Entry();
-//        entry.setValue(5000D);
-//        entry.setDescription("Breakfast");
-//        entry.setRecurrence(Recurrence.DAILY);
-//        entry.setCategory(Category.FOOD);
-//
-//        return ResponseEntity.ok(Lists.newArrayList(new EntryListDto(entry)));
     }
 
     @GetMapping("/summary/{category}")

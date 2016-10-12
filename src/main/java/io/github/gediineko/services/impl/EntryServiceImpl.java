@@ -30,7 +30,7 @@ public class EntryServiceImpl implements EntryService {
 
     @Override
     public List<EntryListDto> getEntryList(String category) {
-        List<Category> categories = resolveStrCategory(category.toUpperCase());
+        List<Category> categories = resolveStrCategory(category);
         return entryRepository.findAllByCategoryIn(categories)
                 .stream()
                 .map(EntryListDto::new)
@@ -77,7 +77,7 @@ public class EntryServiceImpl implements EntryService {
 
     private List<Category> resolveStrCategory(String category) {
         List<Category> categories;
-        switch (category) {
+        switch (category.toUpperCase()) {
             case Category.EXPENSE:
                 categories = Category.expenseList();
                 break;
