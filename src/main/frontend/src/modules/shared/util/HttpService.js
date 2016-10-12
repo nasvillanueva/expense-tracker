@@ -36,5 +36,9 @@ export default {
       }).then(resolveCallback(resolve))
         .catch(rejectCallback(reject))
     });
+  },
+  all(arr) {
+    axiosInstance.all(arr)
+      .then(axios.spread())
   }
 }

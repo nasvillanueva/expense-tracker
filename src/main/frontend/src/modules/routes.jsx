@@ -11,7 +11,7 @@ export default function initRoutes(store, history) {
       <Router history={history}>
         <Route path="/" component={Layout}>
           <IndexRoute component={Logs} name="logs"/>
-          <Route component={Summary} name="summary" />
+          <Route path="summary" component={Summary} name="summary" />
         </Route>
       </Router>
     </Provider>

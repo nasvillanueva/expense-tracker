@@ -24,8 +24,6 @@ public enum Category {
     private String desc;
 
     public static final String EXPENSE = "EXPENSE";
-    public static final String INCOME_STR = "INCOME_STR";
-    public static final String SAVINGS_STR = "SAVINGS_STR";
 
     Category(String desc) {
         this.desc = desc;
@@ -34,18 +32,6 @@ public enum Category {
     @Override
     public String toString() {
         return desc;
-    }
-
-    public static List<Category> incomeList(){
-        return Lists.newArrayList(
-                INCOME
-        );
-    }
-
-    public static List<Category> savingsList(){
-        return Lists.newArrayList(
-                SAVINGS
-        );
     }
 
     public static List<Category> expenseList() {

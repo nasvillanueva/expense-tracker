@@ -8,7 +8,29 @@ export const SUMMARY_ACTIONS = {
   FETCH: "SUMMARY_ACTION_FETCH",
   FETCH_SUCCESS: "SUMMARY_ACTION_FETCH_SUCCESS",
   FETCH_FAILED: "SUMMARY_ACTION_FETCH_FAILED"
-}
+};
+
+export const CATEGORY = {
+  FOOD: "FOOD",
+  BILLS: "BILLS",
+  HEALTH: "HEALTH",
+  TRANSPORT: "TRANSPORT",
+  CLOTHES: "CLOTHES",
+  LEISURE: "LEISURE",
+  EDUCATION: "EDUCATION",
+  OTHER: "OTHER",
+
+  // Special
+  EXPENSE: "EXPENSE", // group of expense
+  INCOME: "INCOME",
+  SAVINGS: "SAVINGS"
+};
+
+export const CATEGORY_SUMMARY = {
+  EXPENSE: "expenseSummary",
+  INCOME: "incomeSummary",
+  SAVINGS: "savingsSummary"
+};
 
 export const API_METHODS = {
   GET: "get",

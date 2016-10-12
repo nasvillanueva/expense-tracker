@@ -1,4 +1,4 @@
-import { SUMMARY_ACTIONS } from "../../constants";
+import { SUMMARY_ACTIONS, CATEGORY_SUMMARY } from "../../constants";
 import SummaryService from "../services/SummaryService";
 
 function fetchDataReq() {
@@ -12,15 +12,16 @@ function fetchDataReq() {
   }
 }
 
-function fetchDataSuccess(entries) {
+function fetchDataSuccess(summary, category) {
+  var state = {
+    ui: {
+      isFetching: false
+    }
+  };
+  state[CATEGORY_SUMMARY[category]] = summary;
   return {
     type: SUMMARY_ACTIONS.FETCH_SUCCESS,
-    state: {
-      entries: entries,
-      ui: {
-        isFetching: false
-      }
-    }
+    state: summary
 
   }
 }
@@ -36,13 +37,13 @@ function fetchDataFailed() {
   }
 }
 
-export function fetchData() {
+export function fetchData(category) {
   return dispatch => {
     dispatch(fetchDataReq());
-    SummaryService.getIncomeSummary()
+    SummaryService.getSummary(category)
       .then(response => {
         console.log(response);
-        dispatch(fetchDataSuccess(response.data));
+        dispatch(fetchDataSuccess(response.data, category));
       }).catch(error => {
       console.log(error);
       dispatch(fetchDataFailed());

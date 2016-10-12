@@ -15,7 +15,6 @@ export default class LogsComponent extends React.Component {
   }
 
   render() {
-
     let store = this.props.logs;
     return (
       <div>

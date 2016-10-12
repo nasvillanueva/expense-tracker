@@ -61,7 +61,8 @@ public class EntryServiceImpl implements EntryService {
 
     @Override
     public Double getBalance() {
-        return getTotal(Category.INCOME_STR) - (getTotal(Category.EXPENSE) + getTotal(Category.SAVINGS_STR));
+        return getTotal(Category.INCOME.name()) -
+                (getTotal(Category.EXPENSE) + getTotal(Category.SAVINGS.toString()));
     }
 
     @Override
@@ -79,12 +80,6 @@ public class EntryServiceImpl implements EntryService {
         switch (category) {
             case Category.EXPENSE:
                 categories = Category.expenseList();
-                break;
-            case Category.INCOME_STR:
-                categories = Category.incomeList();
-                break;
-            case Category.SAVINGS_STR:
-                categories = Category.savingsList();
                 break;
             default:
                 categories = Lists.newArrayList(Category.valueOf(category));
