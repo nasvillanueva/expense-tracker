@@ -1,8 +1,10 @@
 import logs from "./logs/reducers/LogsReducers";
+import summary from "./summary/reducers/SummaryReducers";
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
-  logs: logs
+  logs: logs,
+  summary: summary
 });
 
 export const rootReducer = (state, action) => {

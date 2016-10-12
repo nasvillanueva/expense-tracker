@@ -24,7 +24,8 @@ public enum Category {
     private String desc;
 
     public static final String EXPENSE = "EXPENSE";
-    public static final String NON_EXPENSE = "NON_EXPENSE";
+    public static final String INCOME_STR = "INCOME_STR";
+    public static final String SAVINGS_STR = "SAVINGS_STR";
 
     Category(String desc) {
         this.desc = desc;
@@ -35,15 +36,21 @@ public enum Category {
         return desc;
     }
 
-    public static List<Category> nonExpenseList(){
+    public static List<Category> incomeList(){
         return Lists.newArrayList(
                 INCOME
         );
     }
 
+    public static List<Category> savingsList(){
+        return Lists.newArrayList(
+                SAVINGS
+        );
+    }
+
     public static List<Category> expenseList() {
         return Lists.newArrayList(
-                SAVINGS, FOOD, BILLS, HEALTH,
+                FOOD, BILLS, HEALTH,
                 TRANSPORT, CLOTHES, LEISURE,
                 EDUCATION, OTHER
         );

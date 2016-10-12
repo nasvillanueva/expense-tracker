@@ -8,7 +8,7 @@ let logsState = {
 };
 
 export default function (state = logsState, action) {
-  switch(action.type){
+  switch(action.type) {
     case LOGS_ACTIONS.FETCH:
     case LOGS_ACTIONS.FETCH_SUCCESS:
     case LOGS_ACTIONS.FETCH_FAILED:

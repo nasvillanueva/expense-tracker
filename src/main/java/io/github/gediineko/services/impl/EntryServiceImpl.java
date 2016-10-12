@@ -30,7 +30,7 @@ public class EntryServiceImpl implements EntryService {
 
     @Override
     public List<EntryListDto> getEntryList(String category) {
-        List<Category> categories = resolveStrCategory(category);
+        List<Category> categories = resolveStrCategory(category.toUpperCase());
         return entryRepository.findAllByCategoryIn(categories)
                 .stream()
                 .map(EntryListDto::new)
@@ -61,7 +61,7 @@ public class EntryServiceImpl implements EntryService {
 
     @Override
     public Double getBalance() {
-        return getTotal(Category.NON_EXPENSE) - getTotal(Category.EXPENSE);
+        return getTotal(Category.INCOME_STR) - (getTotal(Category.EXPENSE) + getTotal(Category.SAVINGS_STR));
     }
 
     @Override
@@ -80,8 +80,11 @@ public class EntryServiceImpl implements EntryService {
             case Category.EXPENSE:
                 categories = Category.expenseList();
                 break;
-            case Category.NON_EXPENSE:
-                categories = Category.nonExpenseList();
+            case Category.INCOME_STR:
+                categories = Category.incomeList();
+                break;
+            case Category.SAVINGS_STR:
+                categories = Category.savingsList();
                 break;
             default:
                 categories = Lists.newArrayList(Category.valueOf(category));

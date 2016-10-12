@@ -37,7 +37,7 @@ public class EntryResource {
 //        return ResponseEntity.ok(Lists.newArrayList(new EntryListDto(entry)));
     }
 
-    @GetMapping("/{category}")
+    @GetMapping("/summary/{category}")
     public ResponseEntity<List<EntryListDto>> getEntryList(@PathVariable String category) {
         return ResponseEntity.ok(entryService.getEntryList(category));
     }
