@@ -25,6 +25,7 @@ export default class SummaryComponent extends Component {
       <div className="charts">
         <header className="moduleTitle">
           <h3>Summary</h3>
+          <h4>Balance: </h4>
         </header>
         <SummaryChart label={label} data={chartData}/>
       </div>

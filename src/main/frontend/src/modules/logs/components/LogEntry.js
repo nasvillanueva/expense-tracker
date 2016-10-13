@@ -1,6 +1,6 @@
 import React from 'react';
-import { Panel, Button, Modal } from 'react-bootstrap';
-import { Link } from 'react-router';
+import {Panel, Button, Modal} from 'react-bootstrap';
+import {Link} from 'react-router';
 import FontAwesome from 'react-fontawesome';
 
 export default class LogEntry extends React.Component {
@@ -12,11 +12,11 @@ export default class LogEntry extends React.Component {
   }
 
   close() {
-    this.setState({ showModal: false });
+    this.setState({showModal: false});
   }
 
   open() {
-    this.setState({ showModal: true });
+    this.setState({showModal: true});
   }
 
   render() {
@@ -25,10 +25,22 @@ export default class LogEntry extends React.Component {
     return (
       <div className="logs">
         <Panel header={entry.value.toString()} bsStyle="default">
-          {entry.category.toString()} | {entry.desc.toString()}
+          {entry.category.toString()} &middot; {entry.desc.toString()}
+          <div className="panelButtons">
+            <Link>
+              <Button className="deleteButton" bsSize="small">
+                <FontAwesome name="times"/>
+              </Button>
+            </Link>
+            <Link to="/add/income">
+              <Button className="editButton" bsSize="small">
+                <FontAwesome name="pencil-square-o"/>
+              </Button>
+            </Link>
+          </div>
         </Panel>
 
-        <Button bsStyle="default" bsSize="large" onClick={this.open.bind(this)}>
+        <Button className="addButton" bsStyle="default" bsSize="large" onClick={this.open.bind(this)}>
           <a>+</a>
         </Button>
 
@@ -38,15 +50,21 @@ export default class LogEntry extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <ul className="addCategory">
-              <Link to="/add/income"><li className="income">
-                <FontAwesome name="money" /> Income
-              </li></Link>
-              <Link to="/add/expense"><li className="expense">
-                <FontAwesome name="shopping-cart" /> Expense
-              </li></Link>
-              <Link to="/add/savings"><li className="savings">
-                <FontAwesome name="credit-card" /> Savings
-              </li></Link>
+              <Link to="/add/income">
+                <li className="income">
+                  <FontAwesome name="money"/> Income
+                </li>
+              </Link>
+              <Link to="/add/expense">
+                <li className="expense">
+                  <FontAwesome name="shopping-cart"/> Expense
+                </li>
+              </Link>
+              <Link to="/add/savings">
+                <li className="savings">
+                  <FontAwesome name="credit-card"/> Savings
+                </li>
+              </Link>
             </ul>
           </Modal.Body>
           <Modal.Footer>

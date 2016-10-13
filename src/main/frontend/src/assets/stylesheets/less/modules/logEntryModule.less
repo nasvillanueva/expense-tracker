@@ -1,8 +1,30 @@
 .panel {
   max-width: 80%;
   margin: 0 auto 20px auto;
+  .panel-heading,
+  .panel-body {
+    padding: 10px;
+  }
+
+  .panel-heading {
+    font-size: 20px;
+  }
+
+  .panel-body {
+    font-size: 12px;
+  }
 }
 
 .moduleTitle {
   text-align: center;
+}
+
+.panelButtons {
+  .editButton,
+  .deleteButton {
+    display: inline-block;
+    float: right;
+    border-radius: 50%;
+    margin: 2px;
+  }
 }

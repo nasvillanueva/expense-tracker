@@ -6,12 +6,12 @@ import { Button,
   MenuItem
 } from 'react-bootstrap';
 
-export default class AddIncomeLog extends React.Component {
+export default class AddExpenseLog extends React.Component {
   render() {
     return (
-      <div className="addIncome">
+      <div className="addExpense">
         <header className="moduleTitle">
-          <h3>Add Income</h3>
+          <h3>Add Expense</h3>
         </header>
         <Form>
           <ControlLabel htmlFor="valueId">
