@@ -23,6 +23,9 @@ export default class SummaryComponent extends Component {
     let chartData = [store.incomeTotal, store.expenseTotal, store.savingsTotal];
     return (
       <div className="charts">
+        <header className="moduleTitle">
+          <h3>Summary</h3>
+        </header>
         <SummaryChart label={label} data={chartData}/>
       </div>
     );

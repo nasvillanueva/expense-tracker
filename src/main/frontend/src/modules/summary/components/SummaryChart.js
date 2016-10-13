@@ -1,5 +1,5 @@
 import React from "react";
-import { Line, Bar, Doughnut } from "react-chartjs";
+import { Line, Bar, Pie } from "react-chartjs";
 
 export default class SummaryEntry extends React.Component {
   constructor(props) {
@@ -33,6 +33,7 @@ export default class SummaryEntry extends React.Component {
       <div className="charts">
         <Bar data={chartData} />
         <Line data={chartData} />
+        <Pie data={chartData} />
       </div>
     );
   }
