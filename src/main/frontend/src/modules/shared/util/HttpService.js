@@ -37,8 +37,8 @@ export default {
         .catch(rejectCallback(reject))
     });
   },
-  all(arr) {
-    axiosInstance.all(arr)
-      .then(axios.spread())
+  all(arr, callback) {
+    axios.all(arr)
+      .then(axios.spread(callback))
   }
 }
