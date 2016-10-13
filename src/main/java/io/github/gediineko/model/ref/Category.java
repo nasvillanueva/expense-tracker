@@ -9,7 +9,7 @@ import java.util.List;
  */
 public enum Category {
     FOOD("Food"),
-    BILLS("Bills"),
+    BILL("Bill"),
     HEALTH("Health"),
     TRANSPORT("Transport"),
     CLOTHES("Clothes"),
@@ -36,7 +36,7 @@ public enum Category {
 
     public static List<Category> expenseList() {
         return Lists.newArrayList(
-                FOOD, BILLS, HEALTH,
+                FOOD, BILL, HEALTH,
                 TRANSPORT, CLOTHES, LEISURE,
                 EDUCATION, OTHER
         );

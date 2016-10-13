@@ -18,6 +18,9 @@ export default class LogsComponent extends React.Component {
     let store = this.props.logs;
     return (
       <div>
+        <header className="moduleTitle">
+          <h3>Logs</h3>
+        </header>
         {store.entries.map((o, i) => <LogEntry entry={o} key={i}/>)}
       </div>
     )

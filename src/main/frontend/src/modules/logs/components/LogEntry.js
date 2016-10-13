@@ -1,5 +1,7 @@
 import React from 'react';
 import { Panel, Button, Modal } from 'react-bootstrap';
+import { Link } from 'react-router';
+import FontAwesome from 'react-fontawesome';
 
 export default class LogEntry extends React.Component {
   constructor(props) {
@@ -10,11 +12,11 @@ export default class LogEntry extends React.Component {
   }
 
   close() {
-    this.setState({ showModal: true });
+    this.setState({ showModal: false });
   }
 
   open() {
-    this.setState({ showModal: !this.state.showModal });
+    this.setState({ showModal: true });
   }
 
   render() {
@@ -35,7 +37,17 @@ export default class LogEntry extends React.Component {
             <Modal.Title>Add Log</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-
+            <ul className="addCategory">
+              <Link to="/add/income"><li className="income">
+                <FontAwesome name="money" /> Income
+              </li></Link>
+              <Link to="/add/expense"><li className="expense">
+                <FontAwesome name="shopping-cart" /> Expense
+              </li></Link>
+              <Link to="/add/savings"><li className="savings">
+                <FontAwesome name="credit-card" /> Savings
+              </li></Link>
+            </ul>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close.bind(this)}>Cancel</Button>

@@ -19,9 +19,8 @@ export default class SummaryComponent extends Component {
 
   render(){
     let store = this.props.summary;
-    let total = store.total;
     let label = ["Income", "Expense", "Savings"];
-    let chartData = [total.income, total.expense, total.savings];
+    let chartData = [store.incomeTotal, store.expenseTotal, store.savingsTotal];
     return (
       <div className="charts">
         <SummaryChart label={label} data={chartData}/>

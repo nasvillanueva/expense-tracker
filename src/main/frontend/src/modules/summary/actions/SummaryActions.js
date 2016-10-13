@@ -19,7 +19,7 @@ function fetchDataSuccess(total, category) {
     },
     total: {}
   };
-  state.total[category.toLowerCase()] = total;
+  state[category.toLowerCase() + "Total"] = total;
   return {
     type: SUMMARY_ACTIONS.FETCH_SUCCESS,
     state: state

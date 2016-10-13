@@ -30,7 +30,10 @@ export default class SummaryEntry extends React.Component {
     };
 
     return (
+      <div className="charts">
         <Bar data={chartData} />
+        <Line data={chartData} />
+      </div>
     );
   }
 }
