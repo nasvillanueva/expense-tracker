@@ -51,7 +51,7 @@ public class EntryServiceImpl implements EntryService {
     @Override
     public Entry updateEntry(Entry updatedEntry) {
         if(updatedEntry.isNew() || (!updatedEntry.isNew()
-                && entryRepository.findOne(updatedEntry.getId()) != null)){
+                && entryRepository.findOne(updatedEntry.getId()) == null)){
             //throw entry DOES NOT exist
         }
 

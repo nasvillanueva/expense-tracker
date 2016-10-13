@@ -11,33 +11,33 @@ export default class AddExpenseLog extends React.Component {
     return (
       <div className="addExpense">
         <header className="moduleTitle">
-          <h3>Add Expense</h3>
+          <h3>Expense</h3>
         </header>
         <Form>
           <ControlLabel htmlFor="valueId">
             Value <br/>
             <FormControl id="valueId" placeholder="Value must be a number" type="number"/>
           </ControlLabel>
-          <br/>
+          <br/><br/>
           <ControlLabel htmlFor="categoryId">
             Category <br/>
             <DropdownButton id="categoryId" title="Category">
               <MenuItem>Categories</MenuItem>
             </DropdownButton>
           </ControlLabel>
-          <br/>
+          <br/><br/>
           <ControlLabel htmlFor="descriptionId">
             Description
             <FormControl id="descriptionId" placeholder="Description"/>
           </ControlLabel>
-          <br/>
+          <br/><br/>
           <ControlLabel htmlFor="recurrenceId">
             Recurrence <br/>
             <DropdownButton id="recurrenceId" title="Recurrence">
               <MenuItem>Recurrence</MenuItem>
             </DropdownButton>
           </ControlLabel>
-          <br/>
+          <br/><br/>
           <Button bsStyle="default" type="submit">
             Save
           </Button>

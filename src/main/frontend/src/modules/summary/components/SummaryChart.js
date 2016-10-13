@@ -16,9 +16,9 @@ export default class SummaryEntry extends React.Component {
         {
           data: data,
           backgroundColor: [
-            "#BEE3DB",
-            "#5DFDCB",
-            "#FFD6BA"
+            'rgba(0,0,0,1)',
+            'rgba(255,255,255,1)',
+            'rgba(255,255,255,1)'
           ],
           hoverBackgroundColor: [
             "#BEE3DB",

@@ -11,26 +11,24 @@ export default class AddSavingsLog extends React.Component {
     return (
       <div className="addSavings">
         <header className="moduleTitle">
-          <h3>Add Savings</h3>
+          <h3>Savings</h3>
         </header>
         <Form>
           <ControlLabel htmlFor="valueId">
             Value <br/>
             <FormControl id="valueId" placeholder="Value must be a number" type="number"/>
           </ControlLabel>
-          <br/>
+          <br/><br/>
           <ControlLabel htmlFor="categoryId">
             Category <br/>
-            <DropdownButton id="categoryId" title="Category">
-              <MenuItem>Categories</MenuItem>
-            </DropdownButton>
+            <FormControl id="valueId" placeholder="Savings" type="number" disabled/>
           </ControlLabel>
-          <br/>
+          <br/><br/>
           <ControlLabel htmlFor="descriptionId">
             Description
             <FormControl id="descriptionId" placeholder="Description"/>
           </ControlLabel>
-          <br/>
+          <br/><br/>
           <ControlLabel htmlFor="recurrenceId">
             Recurrence <br/>
             <DropdownButton id="recurrenceId" title="Recurrence">
