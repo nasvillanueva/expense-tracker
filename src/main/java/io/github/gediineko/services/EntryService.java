@@ -1,6 +1,7 @@
 package io.github.gediineko.services;
 
 import io.github.gediineko.model.dto.list.EntryListDto;
+import io.github.gediineko.model.entity.Entry;
 
 import java.util.List;
 
@@ -13,11 +14,11 @@ public interface EntryService {
 
     List<EntryListDto> getEntryList(String category);
 
-    EntryListDto createEntry(EntryListDto newEntry); // EntityAlreadyExistException
+    Entry createEntry(Entry newEntry); // EntityAlreadyExistException
 
-    EntryListDto updateEntry(EntryListDto updatedEntry); // EntityDoesNotExistException
+    Entry updateEntry(Entry updatedEntry); // EntityDoesNotExistException
 
-    EntryListDto getEntity(Long id); // EntityDoesNotExistException
+    Entry getEntity(Long id); // EntityDoesNotExistException
 
     Double getTotal(String category);
 

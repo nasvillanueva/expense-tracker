@@ -1,13 +1,12 @@
 package io.github.gediineko.web.resource;
 
+import io.github.gediineko.model.dto.form.EntryFormDto;
 import io.github.gediineko.model.dto.list.EntryListDto;
+import io.github.gediineko.model.entity.Entry;
 import io.github.gediineko.services.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +38,23 @@ public class EntryResource {
     @GetMapping("/balance")
     public ResponseEntity<Double> getBalance() {
         return ResponseEntity.ok(entryService.getBalance());
+    }
+
+    @PostMapping
+    public ResponseEntity<EntryFormDto> create(@RequestBody EntryFormDto entryFormDto){
+        Entry entry = entryFormDto.getTarget();
+        return ResponseEntity.ok(new EntryFormDto(entryService.createEntry(entry)));
+    }
+
+    @PutMapping
+    public ResponseEntity<EntryFormDto> update(@RequestBody EntryFormDto entryFormDto){
+        Entry entry = entryFormDto.getTarget();
+        return ResponseEntity.ok(new EntryFormDto(entryService.createEntry(entry)));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<EntryFormDto> update(@PathVariable Long id){
+        return ResponseEntity.ok(new EntryFormDto(entryService.getEntity(id)));
     }
 
 

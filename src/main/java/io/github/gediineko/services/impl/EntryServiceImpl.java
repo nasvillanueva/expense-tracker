@@ -2,6 +2,7 @@ package io.github.gediineko.services.impl;
 
 import com.google.common.collect.Lists;
 import io.github.gediineko.model.dto.list.EntryListDto;
+import io.github.gediineko.model.entity.Entry;
 import io.github.gediineko.model.ref.Category;
 import io.github.gediineko.repo.jpa.EntryRepository;
 import io.github.gediineko.services.EntryService;
@@ -38,18 +39,28 @@ public class EntryServiceImpl implements EntryService {
     }
 
     @Override
-    public EntryListDto createEntry(EntryListDto newEntry) {
-        return null;
+    public Entry createEntry(Entry newEntry) {
+        if(!newEntry.isNew()){
+            //throw entry already exist
+        }
+
+        return entryRepository.save(newEntry);
+
     }
 
     @Override
-    public EntryListDto updateEntry(EntryListDto updatedEntry) {
-        return null;
+    public Entry updateEntry(Entry updatedEntry) {
+        if(updatedEntry.isNew() || (!updatedEntry.isNew()
+                && entryRepository.findOne(updatedEntry.getId()) != null)){
+            //throw entry DOES NOT exist
+        }
+
+        return entryRepository.save(updatedEntry);
     }
 
     @Override
-    public EntryListDto getEntity(Long id) {
-        return null;
+    public Entry getEntity(Long id) {
+        return entryRepository.findOne(id);
     }
 
     @Override
