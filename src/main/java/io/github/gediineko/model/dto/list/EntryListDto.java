@@ -3,6 +3,7 @@ package io.github.gediineko.model.dto.list;
 import io.github.gediineko.model.base.dto.BaseWebDto;
 import io.github.gediineko.model.entity.Entry;
 import io.github.gediineko.model.ref.Category;
+import io.github.gediineko.model.ref.Recurrence;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -30,6 +31,10 @@ public class EntryListDto extends BaseWebDto<Entry> {
         return getTarget().getCategory();
     }
 
+    public Recurrence getRecurrence() {
+        return getTarget().getRecurrence();
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -37,6 +42,7 @@ public class EntryListDto extends BaseWebDto<Entry> {
                 .append("value", getValue())
                 .append("description", getDesc())
                 .append("category", getCategory())
+                .append("recurrence", getRecurrence())
                 .toString();
     }
 }

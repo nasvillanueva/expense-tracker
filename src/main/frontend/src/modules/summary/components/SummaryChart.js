@@ -31,9 +31,8 @@ export default class SummaryEntry extends React.Component {
 
     return (
       <div className="charts">
-        <Bar data={chartData} />
-        <Line data={chartData} />
-        <Pie data={chartData} />
+        <Bar data={chartData} width="600" height="400" />
+        <Line data={chartData} width="600" height="400" />
       </div>
     );
   }

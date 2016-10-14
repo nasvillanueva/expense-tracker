@@ -14,7 +14,7 @@ export default class LogEntry extends React.Component {
         <Panel className="logs" bsStyle="default">
           <div className="panelData">
             <h4>{entry.value.toString()}</h4>
-            <p>{entry.category.toString()} &middot; {entry.desc.toString()}</p>
+            <p>{entry.category.toString()} &middot; {entry.desc.toString()} &middot; {entry.recurrence.toString()}</p>
           </div>
           <div className="panelButtons">
             <Button className="deleteButton" bsSize="small" onClick={() => this.props.delete(entry.id)}>

@@ -46,7 +46,6 @@ export default class LogsComponent extends React.Component {
   }
 
   prepareAddForm(modalState){
-    console.log("clear and update")
     this.props.clearFields();
     this.props.updateModalState(modalState);
   }
