@@ -1,30 +1,45 @@
 .panel {
-  max-width: 80%;
+  max-width: 60%;
   margin: 0 auto 20px auto;
   .panel-heading,
   .panel-body {
     padding: 10px;
   }
 
-  .panel-heading {
+  .panel-body {
+    font-size: 14px;
+  }
+
+  h4 {
     font-size: 20px;
   }
 
-  .panel-body {
-    font-size: 12px;
+  .panelData {
+    float: left;
   }
 }
 
 .moduleTitle {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .panelButtons {
   .editButton,
   .deleteButton {
+    border-radius: 50%;
     display: inline-block;
     float: right;
-    border-radius: 50%;
+    height: 30px;
     margin: 2px;
+    width: 30px;
+  }
+
+  .deleteButton {
+    background-color: @pink;
+  }
+
+  .editButton {
+    background-color: @lightBlue;
   }
 }

@@ -53,8 +53,14 @@ public class EntryResource {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EntryFormDto> update(@PathVariable Long id){
+    public ResponseEntity<EntryFormDto> getEntry(@PathVariable Long id){
         return ResponseEntity.ok(new EntryFormDto(entryService.getEntity(id)));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+        entryService.deleteEntry(id);
+        return ResponseEntity.ok("Ok");
     }
 
 

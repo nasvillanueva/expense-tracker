@@ -4,25 +4,14 @@ import LogsService from '../services/LogsService';
 
 function fetchDataReq() {
   return {
-    type: LOGS_ACTIONS.FETCH,
-    state: {
-      ui: {
-        isFetching: true
-      }
-    }
+    type: LOGS_ACTIONS.FETCH
   }
 }
 
 function fetchDataSuccess(entries) {
   return {
     type: LOGS_ACTIONS.FETCH_SUCCESS,
-    state: {
-      entries: entries,
-      ui: {
-        isFetching: false
-      }
-    }
-
+    entries: entries
   }
 }
 
@@ -43,10 +32,46 @@ export function fetchData() {
     LogsService.getLogs()
       .then(response => {
         console.log(response);
-        dispatch(fetchDataSuccess(response.data));
+        return dispatch(fetchDataSuccess(response.data));
       }).catch(error => {
       console.log(error);
-      dispatch(fetchDataFailed());
+      return dispatch(fetchDataFailed());
+    });
+  }
+}
+
+export function updateField(name, value){
+  return dispatch => {
+    return dispatch({
+      type: LOGS_ACTIONS.UPDATE_FIELD,
+      name: name,
+      value: value
+    })
+  }
+}
+
+export function updateModalState(modalState){
+  return dispatch => {
+    return dispatch({
+      type: LOGS_ACTIONS.MODAL_STATE_CHANGED,
+      modalState: modalState
+    })
+  }
+}
+
+export function clearFields(){
+  return dispatch => {
+    return dispatch({
+      type: LOGS_ACTIONS.CLEAR_FIELDS
+    });
+  }
+}
+
+export function initUpdateForm(entryData){
+  return dispatch => {
+    return dispatch({
+      type: LOGS_ACTIONS.INIT_UPDATE_FORM,
+      entryData: entryData
     });
   }
 }

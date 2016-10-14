@@ -5,7 +5,7 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
-var srcDir = './src';
+var srcDir = './src/';
 var targetDir = '../../../target/classes/static';
 
 var webpackConfig = {};

@@ -6,9 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * Created by ggolong on 10/4/16.
@@ -20,7 +23,7 @@ public abstract class BaseEntity implements Persistable<Long> {
     private static final long serialVersionUID = 6135390632608000517L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private Long id;
 
@@ -37,6 +40,14 @@ public abstract class BaseEntity implements Persistable<Long> {
     @Column
     @Enumerated(EnumType.STRING)
     private Recurrence recurrence;
+
+    @Column
+    @CreatedDate
+    private LocalDateTime createdDate;
+
+    @Column
+    @LastModifiedDate
+    private LocalDateTime updatedDate;
 
     @Override
     public boolean isNew() {

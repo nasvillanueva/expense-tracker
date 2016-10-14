@@ -11,40 +11,28 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public class EntryFormDto extends BaseWebDto<Entry> {
 
+    public EntryFormDto() {
+        super(new Entry());
+    }
+
     public EntryFormDto(Entry target) {
         super(target);
-    }
-
-    public void setId(Long id) {
-        getTarget().setId(id);
-    }
-
-    public void setValue(Double value) {
-        getTarget().setValue(value);
-    }
-
-    public void setDesc(String desc) {
-        getTarget().setDescription(desc);
-    }
-
-    public void setCategory(Category category) {
-        getTarget().setCategory(category);
-    }
-
-    public void setRecurrence(Recurrence recurrence) {
-        getTarget().setRecurrence(recurrence);
     }
 
     public Long getId() {
         return getTarget().getId();
     }
 
+    public String getDescription() {
+        return getTarget().getDescription();
+    }
+
     public Double getValue() {
         return getTarget().getValue();
     }
 
-    public String getDesc() {
-        return getTarget().getDescription();
+    public void setRecurrence(Recurrence recurrence) {
+        getTarget().setRecurrence(recurrence);
     }
 
     public Category getCategory() {
@@ -55,12 +43,28 @@ public class EntryFormDto extends BaseWebDto<Entry> {
         return getTarget().getRecurrence();
     }
 
+    public void setId(Long id) {
+        getTarget().setId(id);
+    }
+
+    public void setValue(Double value) {
+        getTarget().setValue(value);
+    }
+
+    public void setDescription(String description) {
+        getTarget().setDescription(description);
+    }
+
+    public void setCategory(Category category) {
+        getTarget().setCategory(category);
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .append("id", getId())
                 .append("value", getValue())
-                .append("description", getDesc())
+                .append("description", getDescription())
                 .append("category", getCategory())
                 .append("recurrence", getRecurrence())
                 .toString();
