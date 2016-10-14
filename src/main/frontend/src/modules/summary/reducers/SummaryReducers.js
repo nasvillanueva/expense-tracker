@@ -4,6 +4,7 @@ let summaryState = {
   incomeTotal: 0,
   expenseTotal: 0,
   savingsTotal: 0,
+  balance: 0,
   ui: {
     isFetching: false
   }
@@ -14,6 +15,7 @@ export default function (state = summaryState, action) {
     case SUMMARY_ACTIONS.FETCH:
     case SUMMARY_ACTIONS.FETCH_FAILED:
     case SUMMARY_ACTIONS.FETCH_SUCCESS:
+    case SUMMARY_ACTIONS.FETCH_BALANCE_SUCCESS:
       return Object.assign({}, state, action.state);
     default:
       return state;

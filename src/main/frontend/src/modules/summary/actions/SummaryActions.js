@@ -37,6 +37,13 @@ function fetchDataFailed() {
   }
 }
 
+function fetchBalanceSuccess(balance){
+  return {
+    type: SUMMARY_ACTIONS.FETCH_BALANCE_SUCCESS,
+    balance: balance
+  }
+}
+
 export function fetchData(category) {
   return dispatch => {
     dispatch(fetchDataReq());
@@ -48,5 +55,19 @@ export function fetchData(category) {
       console.log(error);
       dispatch(fetchDataFailed());
     });
+  }
+}
+
+export function getBalance() {
+  return dispatch => {
+    dispatch(fetchDataReq());
+    SummaryService.getBalance()
+      .then(response => {
+        console.log(response);
+        dispatch(fetchBalanceSuccess(total));
+      }).catch(err => {
+      console.log(err);
+      dispatch(fetchDataFailed());
+    })
   }
 }
